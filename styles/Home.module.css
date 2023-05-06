@@ -7,6 +7,10 @@
   min-height: 100vh;
 }
 
+.title {
+  text-transform: capitalize;
+}
+
 .description {
   display: inherit;
   justify-content: inherit;

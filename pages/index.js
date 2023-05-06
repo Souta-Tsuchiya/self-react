@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import { CopyRight } from './components/copy_right'
 import { Links } from './components/links'
+import { Headline } from './components/Headline'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,6 +26,13 @@ export default function Home() {
 
           <CopyRight />
         </div>
+
+        {/* <h1 className={styles.title}>Index Page</h1>
+        <p className={styles.description}>
+          Get started by editing{" "}
+          <code className={styles.code}>pages/index.js</code>
+        </p> */}
+        <Headline title="index page" />
 
         <div className={styles.center}>
           <Image
