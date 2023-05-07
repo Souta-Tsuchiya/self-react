@@ -5,6 +5,7 @@ import styles from '@/styles/Home.module.css'
 import { CopyRight } from './components/copy_right'
 import { Links } from './components/links'
 import { Headline } from './components/Headline'
+import { MainCompo } from './components/main'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,36 +18,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${styles.main} ${inter.className}`}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.js</code>
-          </p>
-
-          <CopyRight />
-        </div>
-
-        {/* <h1 className={styles.title}>Index Page</h1>
-        <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.js</code>
-        </p> */}
-        <Headline title="index page" />
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-        </div>
-
-        <Links />
-      </main>
+      <MainCompo title="Index"/>
     </>
   )
 }
