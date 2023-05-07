@@ -5,6 +5,7 @@ import { CopyRight } from '../components/copy_right'
 import { Links } from '../components/links'
 import { Headline } from '../components/Headline'
 import {} from "../components/Headline"
+import { Header } from './Header'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,6 +14,7 @@ export function MainCompo(props) {
   return (
     <main className={`${styles.main} ${inter.className}`}>
       <div className={styles.description}>
+        {/* <Header /> */}
         <p>
           Get started by editing&nbsp;
           <code className={styles.code}>pages/{title}.js</code>
