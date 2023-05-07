@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import styles from '../../styles/components/Main.module.css'
 import { CopyRight } from '../components/copy_right'
 import { Links } from '../components/links'
 import { Headline } from '../components/Headline'
