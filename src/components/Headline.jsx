@@ -1,4 +1,4 @@
-import styles from "../../styles/components/Headline.module.css"
+import styles from "src/styles/components/Headline.module.css"
 
 export function Headline(props) {
   const {title} = props;

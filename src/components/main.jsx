@@ -1,11 +1,9 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import styles from '../../styles/components/Main.module.css'
-import { CopyRight } from '../components/copy_right'
-import { Links } from '../components/links'
-import { Headline } from '../components/Headline'
-import {} from "../components/Headline"
-import { Header } from './Header'
+import styles from 'src/styles/components/Main.module.css'
+import { CopyRight } from 'src/components/copy_right.jsx'
+import { Links } from 'src/components/links.jsx'
+import { Headline } from 'src/components/Headline'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,7 +12,6 @@ export function MainCompo(props) {
   return (
     <main className={`${styles.main} ${inter.className}`}>
       <div className={styles.description}>
-        {/* <Header /> */}
         <p>
           Get started by editing&nbsp;
           <code className={styles.code}>pages/{title}.js</code>

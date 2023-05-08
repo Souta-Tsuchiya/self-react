@@ -1,4 +1,4 @@
-import styles from "../../styles/components/Copy_Right.module.css";
+import styles from "src/styles/components/Copy_Right.module.css";
 import Image from 'next/image'
 
 export function CopyRight() {
