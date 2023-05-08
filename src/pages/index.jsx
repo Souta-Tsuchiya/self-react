@@ -15,7 +15,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+      <a href='/about' onClick={hadleClick}>ボタン</a>
       <MainCompo title="Index"/>
     </div>
   )
+}
+
+const hadleClick = (e) => {
+  e.preventDefault();
+  console.log(e.target.href);
 }
