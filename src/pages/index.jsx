@@ -2,11 +2,14 @@ import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import { MainCompo } from 'src/components/main.jsx'
 import { Header } from 'src/components/Header.jsx'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
+let num = 1;
 export default function Home() {
+  const [foo, setFoo] = useState(num);
+
   useEffect(() => {
     document.body.style.backgroundColor = "lightblue";
 
@@ -24,13 +27,19 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <a href='/about' onClick={hadleClick}>ボタン</a>
+      <h1>{foo}</h1>
+      <button onClick={() => {
+        hadleClick();
+        setFoo(num);
+      }}>ボタン</button>
       <MainCompo title="Index"/>
     </div>
   )
 }
 
 const hadleClick = (e) => {
-  e.preventDefault();
-  console.log(e.target.href);
+  // e.preventDefault();
+  // console.log(e.target.href);
+  num++;
+  console.log(num);
 }
