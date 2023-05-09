@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import { MainCompo } from 'src/components/main.jsx'
 import { Header } from 'src/components/Header.jsx'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,11 +12,19 @@ export default function Home() {
 
   useEffect(() => {
     document.body.style.backgroundColor = "lightblue";
-
+    console.log("foo");
     return () => {
       document.body.style.backgroundColor = "";
     }
-  }, []);
+  }, [foo]);
+
+  const [count, setCount] = useState(0);
+  const onClickBtn = useCallback((e) => {
+    if(count < 10) {
+      setCount((count) => count + 1);
+    }
+    console.log(count);
+  }, [count]);
 
   return (
     <div>
@@ -32,6 +40,8 @@ export default function Home() {
         hadleClick();
         setFoo(num);
       }}>ボタン</button>
+      <button onClick={onClickBtn}>ボタン2</button>
+      <h1>{count}</h1>
       <MainCompo title="Index"/>
     </div>
   )
