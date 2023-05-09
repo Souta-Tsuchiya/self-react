@@ -2,10 +2,19 @@ import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import { MainCompo } from 'src/components/main.jsx'
 import { Header } from 'src/components/Header.jsx'
+import { useEffect } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  useEffect(() => {
+    document.body.style.backgroundColor = "lightblue";
+
+    return () => {
+      document.body.style.backgroundColor = "";
+    }
+  }, []);
+
   return (
     <div>
       <Head>
