@@ -3,55 +3,19 @@ import { Inter } from 'next/font/google'
 import { MainCompo } from 'src/components/main.jsx'
 import { Header } from 'src/components/Header.jsx'
 import { useCallback, useEffect, useState } from 'react'
+import { useCounter } from 'src/hooks/useCounter'
+import { useInputArray } from 'src/hooks/useInputArray'
+import { useBgLightBlue } from 'src/hooks/useBgLightBlue'
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
 
 let num = 1;
 export default function Home() {
+  const {count, isShow, onClickBtn, changeShow} = useCounter();
+  const {text, array, onChangeText, onAdd} = useInputArray();
+  useBgLightBlue();
+
   const [foo, setFoo] = useState(num);
-
-  useEffect(() => {
-    document.body.style.backgroundColor = "lightblue";
-    console.log("foo");
-    return () => {
-      document.body.style.backgroundColor = "";
-    }
-  }, [foo]);
-
-  const [count, setCount] = useState(0);
-  const onClickBtn = useCallback((e) => {
-    if(count < 10) {
-      setCount((count) => count + 1);
-    }
-    console.log(count);
-  }, [count]);
-
-  const [text, setText] = useState("");
-  const onChangeText = useCallback((e) => {
-    if(e.target.value.length > 5) {
-      alert("5文字以内にして下さい");
-      return;
-    }
-    setText(e.target.value.trim());
-  }, []);
-
-  const [isShow, setIsShow] = useState(false);
-  const changeShow = useCallback(() => {
-    setIsShow((isShow) => {
-      return !isShow
-    })
-  }, []);
-
-  const [array, setArray] = useState([]);
-  const [counter, setCounter] = useState(1);
-  const onAdd = useCallback(() => {
-    setArray((prevArray) => {
-      const newArray = [...prevArray, counter];
-      setCounter(counter+1);
-      return newArray;
-    });
-  }, [array, counter]);
-
   return (
     <div>
       <Head>
@@ -73,6 +37,8 @@ export default function Home() {
       {
         isShow ? <h1>{count}</h1>: null
       }
+
+
       <input type='text' value={text} onChange={onChangeText}></input>
       <button onClick={onAdd}>追加</button>
       <ul>
@@ -88,8 +54,6 @@ export default function Home() {
 }
 
 const hadleClick = (e) => {
-  // e.preventDefault();
-  // console.log(e.target.href);
   num++;
   console.log(num);
 }
