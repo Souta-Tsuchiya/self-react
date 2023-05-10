@@ -26,6 +26,22 @@ export default function Home() {
     console.log(count);
   }, [count]);
 
+  const [text, setText] = useState("");
+  const onChangeText = useCallback((e) => {
+    if(e.target.value.length > 5) {
+      alert("5文字以内にして下さい");
+      return;
+    }
+    setText(e.target.value.trim());
+  }, []);
+
+  const [isShow, setIsShow] = useState(false);
+  const changeShow = useCallback(() => {
+    setIsShow((isShow) => {
+      return !isShow
+    })
+  }, []);
+
   return (
     <div>
       <Head>
@@ -41,7 +57,13 @@ export default function Home() {
         setFoo(num);
       }}>ボタン</button>
       <button onClick={onClickBtn}>ボタン2</button>
-      <h1>{count}</h1>
+      <button onClick={changeShow}>
+        {isShow ? "非表示": "表示"}
+      </button>
+      {
+        isShow ? <h1>{count}</h1>: null
+      }
+      <input type='text' value={text} onChange={onChangeText}></input>
       <MainCompo title="Index"/>
     </div>
   )
