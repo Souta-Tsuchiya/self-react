@@ -42,6 +42,16 @@ export default function Home() {
     })
   }, []);
 
+  const [array, setArray] = useState([]);
+  const [counter, setCounter] = useState(1);
+  const onAdd = useCallback(() => {
+    setArray((prevArray) => {
+      const newArray = [...prevArray, counter];
+      setCounter(counter+1);
+      return newArray;
+    });
+  }, [array, counter]);
+
   return (
     <div>
       <Head>
@@ -64,6 +74,14 @@ export default function Home() {
         isShow ? <h1>{count}</h1>: null
       }
       <input type='text' value={text} onChange={onChangeText}></input>
+      <button onClick={onAdd}>追加</button>
+      <ul>
+        {array.map(item => {
+          return (
+            <li key={item}>{item}</li>
+          )
+        })}
+      </ul>
       <MainCompo title="Index"/>
     </div>
   )
