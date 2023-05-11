@@ -4,7 +4,7 @@ import { Header } from 'src/components/Header.jsx'
 import { useState } from 'react'
 
 let num = 1;
-export default function Home(props) {
+const Home = (props) => {
   const {
     count, isShow, onClickBtn, changeShow,
     text, array, onChangeText, onAdd,
@@ -52,3 +52,5 @@ const hadleClick = (e) => {
   num++;
   console.log(num);
 }
+
+export default Home

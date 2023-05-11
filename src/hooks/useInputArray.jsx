@@ -11,14 +11,17 @@ export const useInputArray = () => {
   }, []);
 
   const [array, setArray] = useState([]);
-  const [counter, setCounter] = useState(1);
+
   const onAdd = useCallback(() => {
     setArray((prevArray) => {
-      const newArray = [...prevArray, counter];
-      setCounter(counter+1);
+      if(prevArray.includes(text)) {
+        alert("同じ要素が既に存在します。");
+        return prevArray;
+      }
+      const newArray = [...prevArray, text];
       return newArray;
     });
-  }, [array, counter]);
+  }, [text]);
 
   return {text, array, onChangeText, onAdd};
 }
