@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import { MainCompo } from 'src/components/main.jsx'
 import { Header } from 'src/components/Header.jsx'
-import { useCallback, useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useCounter } from 'src/hooks/useCounter'
 import { useInputArray } from 'src/hooks/useInputArray'
 import { useBgLightBlue } from 'src/hooks/useBgLightBlue'
@@ -10,10 +10,15 @@ import { useBgLightBlue } from 'src/hooks/useBgLightBlue'
 // const inter = Inter({ subsets: ['latin'] })
 
 let num = 1;
-export default function Home() {
-  const {count, isShow, onClickBtn, changeShow} = useCounter();
-  const {text, array, onChangeText, onAdd} = useInputArray();
-  useBgLightBlue();
+export default function Home(props) {
+  const {
+    count, isShow, onClickBtn, changeShow,
+    text, array, onChangeText, onAdd,
+  } = props;
+  // console.log(props.count);
+  // const {count, isShow, onClickBtn, changeShow} = useCounter();
+  // const {text, array, onChangeText, onAdd} = useInputArray();
+  // useBgLightBlue();
 
   const [foo, setFoo] = useState(num);
   return (
