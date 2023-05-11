@@ -1,7 +1,12 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useState, useMemo } from 'react'
 
 export const useCounter = () => {
   const [count, setCount] = useState(0);
+
+  const doubleCount = useMemo(() => {
+    return count * 2;
+  }, [count]);
+
   const onClickBtn = useCallback((e) => {
     if(count < 10) {
       setCount((count) => count + 1);
@@ -16,5 +21,5 @@ export const useCounter = () => {
     })
   }, []);
 
-  return {count, isShow, onClickBtn, changeShow};
+  return {count, doubleCount, isShow, onClickBtn, changeShow};
 }

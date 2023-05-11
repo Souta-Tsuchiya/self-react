@@ -5,7 +5,9 @@ import { Header } from 'src/components/Header.jsx'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function About() {
+export default function About(props) {
+  const {doubleCount, onClickBtn} = props;
+
   return (
     <>
       <Head>
@@ -15,6 +17,8 @@ export default function About() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+      <button onClick={onClickBtn}>ダブル追加ボタン</button>
+      <h1>{doubleCount}</h1>
       <MainCompo title="About" />
     </>
   )
